@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+   @apply bg-light text-primary;
+}
+
+.btn {
+   @apply px-10 font-light uppercase rounded-none;
+}
+
+.btn-white {
+   @apply btn bg-light hover:bg-white;
+}
+
+.btn-black {
+   @apply btn bg-primary hover:bg-primary/80 text-light border-primary;
+}
+
+.tracking {
+   @apply tracking-[0.25em];
+}
