@@ -5,6 +5,7 @@ import App from './App.tsx'
 import './index.css'
 import Checkout from './pages/Checkout.tsx'
 import Home from './pages/Home.tsx'
+import Product from './pages/Product.tsx'
 
 const router = createBrowserRouter([
    {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
          {
             path: '/checkout',
             element: <Checkout />,
+         },
+         {
+            path: '/product/:id',
+            element: <Product />,
          },
       ],
    },

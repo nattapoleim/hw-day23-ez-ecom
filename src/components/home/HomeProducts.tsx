@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { products } from '../../data/products'
 
 function HomeProducts() {
@@ -17,7 +18,9 @@ function HomeProducts() {
                      <p className='text-sm tracking'>{product.name}</p>
                      <p className='text-xs tracking'>${product.price}</p>
                      <div className='mt-4 card-actions'>
-                        <button className='btn-black'>Buy Now</button>
+                        <Link to={`/product/${product.id}`}>
+                           <button className='btn-black'>Buy Now</button>
+                        </Link>
                      </div>
                   </div>
                </div>

@@ -4,7 +4,6 @@ function Hero() {
          <div className='flex flex-col items-start justify-end h-full gap-8 p-10 font-light text-light'>
             <p className='text-xs tracking'>DESIGNED IN LONDON</p>
             <p className='text-xl tracking'>TIMELESS ELEGANCE</p>
-            <button className='btn-white'>SHOP NOW</button>
          </div>
       </main>
    )
