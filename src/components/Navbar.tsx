@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
+import { CartType } from '../utils/cartType'
+import Cart from './Cart'
 
-function Navbar() {
+function Navbar({ myCart, setCartUpdated }: CartType) {
    return (
       <header className='h-24 bg-black text-light'>
          <nav className='relative flex items-center justify-center h-full'>
-            <div className='text-4xl tracking'>AFTER.NOON</div>
-            <div className='absolute hidden space-x-10 text-sm tracking-wider uppercase md:block right-10'>
-               <Link to='/'>Home</Link>
-               <Link to='/checkout'>Check Out</Link>
+            <Link to='/' className='text-4xl tracking'>
+               AFTER.NOON
+            </Link>
+            <div className='absolute right-10'>
+               <Cart myCart={myCart} setCartUpdated={setCartUpdated} />
             </div>
          </nav>
       </header>

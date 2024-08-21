@@ -1,16 +1,28 @@
-import { useParams } from 'react-router-dom'
+import { Dispatch, SetStateAction } from 'react'
+import { useOutletContext, useParams } from 'react-router-dom'
 import { products } from '../data/products'
 
 function Product() {
    const { id } = useParams()
    const product = products.find(p => p.id === id)
+   const { setCartUpdated } = useOutletContext<{
+      setCartUpdated: Dispatch<SetStateAction<number>>
+   }>()
+
+   const addToCart = () => {
+      const getCart = localStorage.getItem('cart')
+      const curCart = getCart ? JSON.parse(getCart) : []
+      const newCart = [...curCart, id]
+      localStorage.setItem('cart', JSON.stringify(newCart))
+      setCartUpdated(prev => prev + 1)
+   }
 
    return (
       <section className='md:h-[calc(100svh-6rem)] font-light px-5 md:px-2 lg:px-10'>
          <main className='grid h-full gap-4 py-10 md:grid-cols-2'>
             <div className='overflow-hidden bg-green-300 '>
                <img
-                  className='object-cover object-center w-full md:h-full'
+                  className='object-center w-full md:h-full'
                   src={`/src/assets/products/${product?.image}`}
                   alt={product?.name}
                />
@@ -34,7 +46,9 @@ function Product() {
                   dimenstions: {product?.dimensions.width} * {product?.dimensions.depth} *{' '}
                   {product?.dimensions.height}
                </p>
-               <button className='ml-auto btn-black'>BUY NOW</button>
+               <button onClick={addToCart} className='ml-auto btn-black'>
+                  ADD TO CART
+               </button>
             </div>
          </main>
       </section>
