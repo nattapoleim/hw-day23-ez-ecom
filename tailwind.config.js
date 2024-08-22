@@ -3,6 +3,9 @@ export default {
    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
    theme: {
       extend: {
+         fontFamily: {
+            inter: 'Inter',
+         },
          colors: {
             primary: '#1c1b1b',
             light: '#EEEFEE',

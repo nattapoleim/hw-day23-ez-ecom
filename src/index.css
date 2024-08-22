@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-primary scroll-smooth;
+   @apply bg-white text-primary scroll-smooth font-inter;
 }
 
 .btn {
-  @apply font-light uppercase rounded-none;
+   @apply font-light uppercase rounded-none;
 }
 
 .btn-white {
-  @apply btn px-10  bg-light hover:bg-white;
+   @apply px-10 btn bg-light hover:bg-white;
 }
 
 .btn-black {
-  @apply btn px-10  bg-primary hover:bg-primary/80 text-light border-primary;
+   @apply px-10 btn bg-primary hover:bg-primary/80 text-light border-primary;
 }
 
 .btn-icon {
-  @apply btn px-2 py-2;
+   @apply px-2 py-2 btn;
 }
 
 .tracking {
-  @apply tracking-[0.25em];
+   @apply tracking-[0.25em];
 }

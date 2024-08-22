@@ -4,9 +4,9 @@ import Cart from './Cart'
 
 function Navbar({ myCart, setCartUpdated }: CartType) {
    return (
-      <header className='h-24 bg-black text-light'>
+      <header className='h-16 bg-black text-light'>
          <nav className='relative flex items-center justify-center h-full'>
-            <Link to='/' className='text-4xl tracking'>
+            <Link to='/' className='text-3xl tracking'>
                AFTER.NOON
             </Link>
             <div className='absolute right-10'>

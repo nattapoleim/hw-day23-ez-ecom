@@ -8,7 +8,7 @@ function Cart({ myCart, setCartUpdated }: CartType) {
       const curCart = getCart ? JSON.parse(getCart) : []
       const newCart = curCart.filter((p: ProductType, idx: number) => p.id !== id && idx !== index)
       localStorage.setItem('cart', JSON.stringify(newCart))
-      setCartUpdated(prev => prev + 1)
+      setCartUpdated(prevCount => prevCount + 1)
    }
 
    return (

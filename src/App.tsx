@@ -8,7 +8,7 @@ import ScrollToTop from './utils/ScrollToTop'
 
 function App() {
    const [myCart, setMyCart] = useState<ProductType[]>([])
-   const [cartUpdated, setCartUpdated] = useState(0)
+   const [cartUpdated, setCartUpdated] = useState<number>(0)
 
    useEffect(() => {
       const getCart = localStorage.getItem('cart')

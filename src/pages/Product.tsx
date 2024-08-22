@@ -18,7 +18,7 @@ function Product() {
    }
 
    return (
-      <section className='md:h-[calc(100svh-6rem)] font-light px-5 md:px-2 lg:px-10'>
+      <section className='md:h-[calc(100svh-4rem)] font-light px-5 md:px-2 lg:px-10'>
          <main className='grid h-full gap-4 py-10 md:grid-cols-2'>
             <div className='overflow-hidden bg-green-300 '>
                <img
