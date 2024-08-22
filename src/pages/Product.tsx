@@ -1,13 +1,10 @@
 import { Dispatch, SetStateAction } from 'react'
-import { useOutletContext, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { products } from '../data/products'
 
-function Product() {
+function Product({ setCartUpdated }: { setCartUpdated: Dispatch<SetStateAction<number>> }) {
    const { id } = useParams()
    const product = products.find(p => p.id === id)
-   const { setCartUpdated } = useOutletContext<{
-      setCartUpdated: Dispatch<SetStateAction<number>>
-   }>()
 
    const addToCart = () => {
       const getCart = localStorage.getItem('cart')

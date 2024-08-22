@@ -69,8 +69,8 @@ function Cart({ myCart, setCartUpdated }: CartType) {
                      </article>
                   ))}
                </div>
-               <Link to='/checkout' className='w-full mt-auto btn btn-black'>
-                  CHECK OUT
+               <Link to='/checkout' className='w-full mt-auto'>
+                  <button className='w-full btn btn-black'>CHECK OUT</button>
                </Link>
             </div>
          </div>

@@ -14,6 +14,7 @@ interface CheckoutForm {
 
 function Checkout() {
    const { register, handleSubmit } = useForm<CheckoutForm>()
+   // const [products, setProducts] = useState<Product[]>([])
 
    const onSubmit = (data: CheckoutForm) => {
       console.log(data)

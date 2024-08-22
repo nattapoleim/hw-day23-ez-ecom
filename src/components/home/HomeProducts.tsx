@@ -10,8 +10,8 @@ function HomeProducts() {
          </div>
          <div className='grid items-center gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 '>
             {products.map(product => (
-               <div key={product.id} className='card md:max-w-96'>
-                  <figure className=''>
+               <div key={product.id} className='h-full card md:max-w-96'>
+                  <figure className='h-full'>
                      <img src={`/src/assets/products/${product.image}`} alt='product1' />
                   </figure>
                   <div className='items-center text-center card-body'>

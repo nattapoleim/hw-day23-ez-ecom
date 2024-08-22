@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { products } from './data/products'
+import Checkout from './pages/Checkout'
+import Home from './pages/Home'
+import Product from './pages/Product'
 import { ProductType } from './utils/cartType'
 import ScrollToTop from './utils/ScrollToTop'
 
@@ -32,7 +35,12 @@ function App() {
       <main>
          <ScrollToTop />
          <Navbar myCart={myCart} setCartUpdated={setCartUpdated} />
-         <Outlet context={{ setCartUpdated }} />
+         {/* <Outlet context={{ setCartUpdated }} /> */}
+         <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/product/:id' element={<Product setCartUpdated={setCartUpdated} />} />
+         </Routes>
          <Footer />
       </main>
    )

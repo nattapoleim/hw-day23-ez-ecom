@@ -9,9 +9,9 @@ export interface ProductType {
    price: number
    readonly features: string[]
    readonly dimensions: {
-      readonly width: number // estimated
-      readonly depth: number // estimated
-      readonly height: number // estimated
+      readonly width: number
+      readonly depth: number
+      readonly height: number
    }
    image: string
 }
