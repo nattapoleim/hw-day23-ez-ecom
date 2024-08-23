@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { ProductType } from '../utils/cartType'
 
 interface CheckoutForm {
    fullName: string
@@ -12,9 +13,8 @@ interface CheckoutForm {
    zipCode: string
 }
 
-function Checkout() {
+function Checkout({ myCart }: { myCart: ProductType[] }) {
    const { register, handleSubmit } = useForm<CheckoutForm>()
-   // const [products, setProducts] = useState<Product[]>([])
 
    const onSubmit = (data: CheckoutForm) => {
       console.log(data)
@@ -22,7 +22,7 @@ function Checkout() {
 
    return (
       <section className='min-h-[calc(100svh-4rem)] md:h-[calc(100svh-4rem)]'>
-         <main className='grid h-full grid-cols-2 divide-x'>
+         <main className='grid h-full divide-x md:grid-cols-2'>
             <div className='p-10'>
                <h1 className='text-3xl'>Checkout</h1>
                <p className='mt-6 font-medium'>Shipping Infomation</p>
@@ -151,36 +151,49 @@ function Checkout() {
                   Back
                </Link>
             </div>
-            <div className='p-10 bg-light'>
+            <div className='p-4 md:p-10 bg-light'>
                <h1 className='text-3xl'>Cart</h1>
                <p className='mt-6 font-medium'>Review your cart</p>
                <div className='flex flex-col gap-4 mt-4'>
-                  <div className='flex gap-4'>
-                     <div className='overflow-hidden rounded-md size-20'>
-                        <img
-                           src='/src/assets/products/product1.png'
-                           alt=''
-                           className='object-center w-full'
-                        />
-                     </div>
-                     <div className='flex flex-col justify-between'>
-                        <div className='font-light'>
-                           <p className='text-sm'>Product Name</p>
-                           <p className='text-xs text-primary/50'>1x</p>
+                  {myCart.map(p => (
+                     <div key={p.id} className='flex gap-4'>
+                        <div className='overflow-hidden rounded-md size-20'>
+                           <img
+                              src={`/src/assets/products/${p.image}`}
+                              alt=''
+                              className='object-center h-full md:w-full md:h-auto'
+                           />
                         </div>
-                        <p>xx</p>
+                        <div className='flex flex-col justify-between'>
+                           <div className='font-light'>
+                              <p className='text-sm'>{p.name}</p>
+                           </div>
+                           <p className='text-sm'>$ {p.price}</p>
+                        </div>
                      </div>
-                  </div>
+                  ))}
                </div>
 
-               <div className='flex items-center justify-between mt-4'>
+               <div className='flex flex-col items-center justify-between gap-2 mt-8 sm:flex-row lg:w-full xl:w-3/4'>
                   <input
                      type='text'
                      placeholder='Enter Coupon'
-                     className='w-1/2 input input-bordered input-md'
+                     className='w-full rounded-none input input-bordered input-md'
                   />
+                  <button className='w-full sm:w-auto sm:btn-md btn btn-outline btn-sm'>
+                     Apply
+                  </button>
                </div>
-               <button className='w-3/4 mt-10 btn btn-black'>Pay Now</button>
+               <div className='flex items-center justify-between mt-8 lg:w-full xl:w-3/4'>
+                  <p className=''>Total</p>
+                  <p className=''>$ {myCart.reduce((acc, p) => acc + p.price, 0)}</p>
+               </div>
+               <button
+                  className='w-full mt-10 xl:w-3/4 btn btn-black'
+                  onClick={handleSubmit(onSubmit)}
+               >
+                  Pay Now
+               </button>
             </div>
          </main>
       </section>

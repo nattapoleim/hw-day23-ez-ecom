@@ -35,10 +35,9 @@ function App() {
       <main>
          <ScrollToTop />
          <Navbar myCart={myCart} setCartUpdated={setCartUpdated} />
-         {/* <Outlet context={{ setCartUpdated }} /> */}
          <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/checkout' element={<Checkout myCart={myCart} />} />
             <Route path='/product/:id' element={<Product setCartUpdated={setCartUpdated} />} />
          </Routes>
          <Footer />
